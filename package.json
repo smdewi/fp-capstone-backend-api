@@ -1,0 +1,27 @@
+{
+  "name": "fp-capstone-backend-api",
+  "version": "1.0.0",
+  "description": "API for capstone project pau pau food playlist",
+  "main": "index.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongodb": "^5.1.0",
+    "node": "^19.8.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smdewi/fp-capstone-backend-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/smdewi/fp-capstone-backend-api/issues"
+  },
+  "homepage": "https://github.com/smdewi/fp-capstone-backend-api#readme"
+}
