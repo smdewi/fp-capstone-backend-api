@@ -29,28 +29,37 @@ async function main(){
         let playlist = await db.collection('playlist').find().toArray();
         res.status(200);
         res.send(playlist);
-    })
+    });
 
     //localhost:8888/user
     app.get('/user', async(req, res)=>{
         let user = await db.collection('user').find().toArray();
         res.status(200);
         res.send(user);
-    })
+    });
+
+    app.post('/user', async (req, res) => {
+        let { firstName } = req.body;
+        const results = await db.collection('user').insertOne({
+            firstName: firstName
+        });
+        res.status(200);
+        res.send(results);
+    });
 
     //localhost:8888/restaurant
     app.get('/restaurant', async(req, res)=>{
         let restaurant = await db.collection('restaurant').find().toArray();
         res.status(200);
         res.send(restaurant);
-    })
+    });
 
     //localhost:8888/menu
     app.get('/menu', async(req, res)=>{
         let menu = await db.collection('menu').find().toArray();
         res.status(200);
         res.send(menu);
-    })
+    });
 
 }
 
