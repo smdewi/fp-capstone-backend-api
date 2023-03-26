@@ -39,9 +39,12 @@ async function main(){
     });
 
     app.post('/user', async (req, res) => {
-        let { firstName } = req.body;
+        let { firstName, lastName, email, password } = req.body;
         const results = await db.collection('user').insertOne({
-            firstName: firstName
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            password: password
         });
         res.status(200);
         res.send(results);
