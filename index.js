@@ -46,8 +46,9 @@ async function main(){
             email: email,
             password: password
         });
+        let user = await db.collection('user').findOne({_id: results.insertedID})
         res.status(200);
-        res.send(results);
+        res.send(user);
     });
 
     //localhost:8888/restaurant
