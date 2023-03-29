@@ -31,6 +31,22 @@ async function main(){
         res.send(playlist);
     });
 
+    app.post('/playlist', async(req, res) => {
+        const { playlistName, numOfMeals, deliveryTime, startDate, endDate, status, cuisineTags, excludedIngredients } = req.body;
+        const results = await db.collection('playlist').insertOne({
+            playlistName: playlistName,
+            numOfMeals: numOfMeals,
+            deliveryTime: deliveryTime,
+            startDate: startDate,
+            endDate: endDate,
+            status: status,
+            cuisineTags: cuisineTags,
+            excludedIngredients: excludedIngredients
+        });
+        res.status(200);
+        res.send(results);
+    })
+
     //localhost:8888/user
     app.get('/user', async(req, res)=>{
         let user = await db.collection('user').find().toArray();
@@ -39,16 +55,16 @@ async function main(){
     });
 
     app.post('/user', async (req, res) => {
-        let { firstName, lastName, email, password } = req.body;
+        const { firstName, lastName, email, password } = req.body;
         const results = await db.collection('user').insertOne({
             firstName: firstName,
             lastName: lastName,
             email: email,
             password: password
         });
-        let user = await db.collection('user').findOne({_id: results.insertedID})
+        // let user = await db.collection('user').findOne({_id: results.insertedID})
         res.status(200);
-        res.send(user);
+        res.send(results);
     });
 
     //localhost:8888/restaurant
